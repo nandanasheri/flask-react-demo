@@ -7,6 +7,7 @@ import requests
 import datetime
 import pytz
 import sqlite3
+import os
 
 # Set up Flask App to receive requests
 app = Flask(__name__)
@@ -15,10 +16,12 @@ app = Flask(__name__)
 CORS(app)
 
 
-# Load the .env file
-load_dotenv()
-# access API key
-APIkey = os.getenv('WEATHER_API_KEY')
+# # Load the .env file
+# load_dotenv()
+# # access API key
+# APIkey = os.getenv('WEATHER_API_KEY')
+
+APIkey = os.environ.get("WEATHER_API_KEY")
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
