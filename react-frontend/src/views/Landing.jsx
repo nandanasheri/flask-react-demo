@@ -21,7 +21,7 @@ export default function LandingPage() {
         e.preventDefault()
         // localhost:5000 is where I am running the backend concurrently
         try {
-            const response = await fetch(`http://localhost:5000/weather?state=${state}&city=${city}&country=${country}`, {
+            const response = await fetch(`https://flask-react-demo.onrender.com/weather?state=${state}&city=${city}&country=${country}`, {
                 method : 'GET'
             })
             if (!response.ok) {
@@ -39,7 +39,7 @@ export default function LandingPage() {
     // This functions calls the API that returns all states and countries for dropdown options
     const getLocations = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/locations`, {
+            const response = await fetch(`https://flask-react-demo.onrender.com/locations`, {
                 method : 'GET'
             })
             if (!response.ok) {
